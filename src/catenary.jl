@@ -63,5 +63,5 @@ for j in 1:N
     push!(y_clean, getValue(y)[j])
 end
 
-catenary = plot(x=x_clean, y=y_clean)
+catenary = plot(x=x_clean, y=y_clean, Coord.Cartesian(xmin=0, xmax=1,))
 draw(PNG("catenary.png", 6inch, 6inch), catenary)
