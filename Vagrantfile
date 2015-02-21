@@ -12,4 +12,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "shell", path: "./install/ubuntu-install.sh"
+  config.vm.provision "shell", path: "./install/dependencies.sh"
 end
