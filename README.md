@@ -1,6 +1,6 @@
 # JuMP Examples
 
-Optimization examples in Julia using the JuMP package.
+Optimization examples in Julia using the JuMP package from the [StaffJoy](https://www.staffjoy.com) team.
 
 ## Installation
 
@@ -8,7 +8,7 @@ This repository is built for development using Vagrant. Vagrant provides local d
 
 ### Prerequisites
 
-[Vagrant](https://www.vagrantup.com/) and [Virtualbox](https://www.virtualbox.org/)
+Install [Vagrant](https://www.vagrantup.com/) and [Virtualbox](https://www.virtualbox.org/).
 
 ### Booting the VM
 
@@ -22,7 +22,7 @@ If you run into issues, it's possible that the base virtual image must be update
 
 ## Modifying problems
 
-You can modify code either inside or outside of the virtual machine - it will sync immediately. To run the code, run `vagrant ssh` to enter the instance, go to the source code folder with `cd /vagrant/src/`, then execute code with `julia <file.jl>`
+You can modify code either inside or outside of the virtual machine - it will sync immediately. To run the code, run `vagrant ssh` to enter the instance, go to the source code folder with `cd /vagrant/src/`, then execute code with `julia <file.jl>`.
 
 ## Presentations
 
