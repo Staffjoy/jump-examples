@@ -17,8 +17,8 @@ Source: http://orfe.princeton.edu/~rvdb/ampl/nlmodels/
 =#
 
 using JuMP
-using Ipopt         # Nonlinear solver
-using Gadfly, Cairo # Graphing support
+using Ipopt  # Nonlinear solver
+using Gadfly # Graphing support
 
 N = 100   # number of chainlinks
 L = 1     # difference in x-coords of endlinks
@@ -64,4 +64,4 @@ for j in 1:N
 end
 
 catenary = plot(x=x_clean, y=y_clean, Coord.Cartesian(xmin=0, xmax=1,))
-draw(PNG("catenary.png", 6inch, 6inch), catenary)
+draw(SVG("catenary.svg", 6inch, 6inch), catenary)
