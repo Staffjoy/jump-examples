@@ -11,25 +11,25 @@ This model finds the shape of a hanging chain
 The solution is known to be y = cosh(a*x) + b
 for appropriate a and b.
 
-
 This problem is a port to Julia/JuMP of a model by Professor Robert Vanderbei
 at Prineceton University, originally written in AMPL.
 Source: http://orfe.princeton.edu/~rvdb/ampl/nlmodels/
 =#
 
 using JuMP
-using NLopt
+using Ipopt         # Nonlinear solver
+using Gadfly, Cairo # Graphing support
 
 N = 100   # number of chainlinks
 L = 1     # difference in x-coords of endlinks
 h = 2*L/N # length of each link
 
-m = Model(solver=NLoptSolver(algorithm=:LD_MMA))
+m = Model(solver=IpoptSolver())
 
-@defVar(m, x[1:N]) # Julia is zero-indexed
-@defVar(m, y[1:N]) # Julia is zero-indexed
+@defVar(m, x[1:N]) # Julia is 1-indexed
+@defVar(m, y[1:N])
 
-# Minimize potential energy
+# Minimize potential energy from center of mass for link
 @setObjective(m, Min, sum{(y[j-1] + y[j])/2, j=2:N})
 
 # Anchor ends
@@ -46,16 +46,22 @@ end
 
 
 # Link together pieces
-for j in 2:N # Remember zero-index
+for j in 2:N # Remember 1-index
     @addNLConstraint(m,
-    #=
-        # Expanded form still doesn't work?
-        x[j]^2 - 2*x[j-1]*x[j] + x[j-1]*x[j-1]
-        + y[j]*y[j] - 2*y[j-1]*y[j] + y[j-1]*y[j-1]
-        <= h*h
-    =#
-        (x[j] - x[j-1])^2 + (y[j] - y[j-1])^2 <= h^2;
+        (x[j] - x[j-1])^2 + (y[j] - y[j-1])^2 <= h^2
     )
 end
 
-result = solve(m)
+solve(m)
+
+# Graph the data
+
+x_clean = Float64[]
+y_clean = Float64[]
+for j in 1:N
+    push!(x_clean, getValue(x)[j])
+    push!(y_clean, getValue(y)[j])
+end
+
+catenary = plot(x=x_clean, y=y_clean)
+draw(PNG("catenary.png", 6inch, 6inch), catenary)
