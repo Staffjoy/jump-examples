@@ -1,6 +1,6 @@
 # JuMP Examples
 
-Optimization examples in Julia using the JuMP package from the [StaffJoy](https://www.staffjoy.com) team.
+Optimization examples in [Julia](http://julialang.org/) using the[JuMP package](http://juliaopt.org) from the [StaffJoy](https://www.staffjoy.com) team.
 
 ## Installation
 
