@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-sudo apt-get install build-essential gfortran pkg-config
+sudo apt-get install --yes --force-yes build-essential gfortran pkg-config
 
 # Install dependencies for this repo
 julia -e 'Pkg.add("JuMP")'
