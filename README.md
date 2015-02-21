@@ -1,6 +1,6 @@
 # JuMP Examples [![Build Status](https://travis-ci.org/StaffJoy/jump-examples.svg?branch=master)](https://travis-ci.org/StaffJoy/jump-examples)
 
-Optimization examples in [Julia](http://julialang.org/) using the[JuMP package](http://juliaopt.org) from the [StaffJoy](https://www.staffjoy.com) team.
+Optimization examples in [Julia](http://julialang.org/) using the [JuMP package](http://juliaopt.org) from the [StaffJoy](https://www.staffjoy.com) team.
 
 ## Installation
 
