@@ -26,27 +26,27 @@ h = 2*L/N # length of each link
 
 m = Model(solver=IpoptSolver())
 
-@defVar(m, x[1:N]) # Julia is 1-indexed
-@defVar(m, y[1:N])
+@defVar(m, x[0:N])
+@defVar(m, y[0:N])
 
 # Minimize potential energy from center of mass for link
-@setObjective(m, Min, sum{(y[j-1] + y[j])/2, j=2:N})
+@setObjective(m, Min, sum{(y[j-1] + y[j])/2, j=1:N})
 
 # Anchor ends
-@addConstraint(m, x[1] == 0)
-@addConstraint(m, y[1] == 0)
+@addConstraint(m, x[0] == 0)
+@addConstraint(m, y[0] == 0)
 @addConstraint(m, x[N] == L)
 @addConstraint(m, y[N] == 0)
 
 # Set starting values
-for j in 1:N
+for j in 0:N
     setValue(x[j], 0)
     setValue(y[j], 0)
 end
 
 
 # Link together pieces
-for j in 2:N # Remember 1-index
+for j in 1:N
     @addNLConstraint(m,
         (x[j] - x[j-1])^2 + (y[j] - y[j-1])^2 <= h^2
     )
@@ -58,7 +58,7 @@ solve(m)
 
 x_clean = Float64[]
 y_clean = Float64[]
-for j in 1:N
+for j in 0:N
     push!(x_clean, getValue(x)[j])
     push!(y_clean, getValue(y)[j])
 end
