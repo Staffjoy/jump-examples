@@ -12,7 +12,7 @@ The solution is known to be y = cosh(a*x) + b
 for appropriate a and b.
 
 This problem is a port to Julia/JuMP of a model by Professor Robert Vanderbei
-at Prineceton University, originally written in AMPL.
+at Princeton University, originally written in AMPL.
 Source: http://orfe.princeton.edu/~rvdb/ampl/nlmodels/
 =#
 
