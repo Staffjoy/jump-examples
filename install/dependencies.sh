@@ -1,7 +1,5 @@
 #!/bin/sh
 set -e
-sudo apt-get install --yes --force-yes build-essential gfortran pkg-config
-
 # Install dependencies for this repo
 julia -e 'Pkg.add("JuMP")'
 julia -e 'Pkg.add("Cbc")'    # Branch and bound solver
