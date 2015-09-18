@@ -4,7 +4,7 @@ Optimization examples in [Julia](http://julialang.org/) using the [JuMP package]
 
 ## Installation
 
-This repository is built for development using Vagrant. Vagrant provides local development virtual machines. So, booting the associated Vagrant virtual machine in this repository installs all dependencies so that you can focus on the code. 
+This repository is built for development using Vagrant. Vagrant provides local development virtual machines. Booting the associated Vagrant virtual machine in this repository installs all dependencies so that you can focus on the code. 
 
 ### Prerequisites
 
@@ -12,13 +12,13 @@ Install [Vagrant](https://www.vagrantup.com/) and [Virtualbox](https://www.virtu
 
 ### Booting the VM
 
-1. Run `vagrant up`. This boots the virtual machines. Installation the first time take a long time because the Ubuntu linux image must be downloaded and the dependencies must be compiled from source.
+1. Run `vagrant up`. This boots the virtual machine. Installation the first time will take a long time because the Ubuntu linux image must be downloaded and the dependencies must be compiled from source.
 2. To enter the VM, run `vagrant ssh`. The repository folder is synced to `/vagrant/` and you can find examples in the `src` folder. All the tools you need - including Julia and solvers - are already installed.
 3. When done, exit any SSH sessions and run `vagrant halt` to end the virtual machine. 
 
 ### Debugging
 
-If you run into issues, it's possible that the base virtual image must be updated. To do this, run `vagrant destroy` then rebuild the machine with `vagrant up`.
+If you run into issues, it's possible that the base virtual image must be updated. To do this, run `vagrant destroy`, then rebuild the machine with `vagrant up`.
 
 ## Modifying problems
 
