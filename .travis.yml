@@ -1,6 +1,4 @@
 language: julia
-install:
-  - ./install/ubuntu-install.sh
-  - ./install/dependencies.sh
+install: bash install/dependencies.sh
 script: make
-sudo: false
+sudo: required
