@@ -1,3 +1,4 @@
 language: julia
 install: ./install/dependencies.sh
 script: make
+sudo: false
