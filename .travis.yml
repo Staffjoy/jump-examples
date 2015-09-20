@@ -1,4 +1,6 @@
 language: julia
-install: ./install/dependencies.sh
+install:
+  - ./install/ubuntu-install.sh
+  - ./install/dependencies.sh
 script: make
 sudo: false
