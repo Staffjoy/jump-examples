@@ -1,4 +1,4 @@
-# JuMP Examples [![Build Status](https://travis-ci.org/Staffjoy/jump-examples.svg?branch=master)](https://travis-ci.org/Staffjoy/jump-examples) [![Moonlight](https://img.shields.io/badge/Contractors-1-brightgreen.svg)](https://moonlightwork.com/staffjoy)
+# JuMP Examples [![Build Status](https://travis-ci.org/Staffjoy/jump-examples.svg?branch=master)](https://travis-ci.org/Staffjoy/jump-examples) [![Moonlight contractors](https://img.shields.io/badge/contractors-1147-brightgreen.svg)](https://moonlightwork.com/for/staffjoy)
 
 Optimization examples in [Julia](http://julialang.org/) using the [JuMP package](http://juliaopt.org) from the [StaffJoy](https://www.staffjoy.com) team.
 
